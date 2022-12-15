@@ -20,25 +20,33 @@
                     <div class="card-body">
                         <form method="POST", action="/login">
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="username" type="text" placeholder="username" name="username"/>
-                                <label for="username">username</label>
+                                <label for="username">Tên đăng nhập</label>
+                                <input class="form-control" id="username" type="text" placeholder="Username" required="required" name="username"/>
+                                
                             </div>
                             <div class="form-floating mb-3">
+                                <label for="password">Mật khẩu</label>
                                 <input class="form-control" id="password" type="password" placeholder="Password" required="required" name="password"/>
-                                <label for="password">Password</label>
+                                
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                <label class="form-check-label" for="inputRememberPassword">Ghi nhớ</label>
+                            </div>
+                            <div class="mt-4 mb-0 form-group">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary" type="submit">Đăng nhập</button>
+                                </div>
+                                
                             </div>
                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                <a class="small" href="password.html">Forgot Password?</a>
-                                <input type="submit">Login</input>
+                                <a class="small" href="">Không đăng nhập được ?</a>
                             </div>
+                            
                         </form>
                     </div>
                     <div class="card-footer text-center py-3">
-                        <div class="small"><a href="/register">Need an account? Sign up!</a></div>
+                        <div class="small"><a href="/register">Cần đăng ký tài khoản?</a></div>
                     </div>
                 </div>
             </div>
