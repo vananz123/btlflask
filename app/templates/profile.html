@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container">
+    <h5>Thông tin cá nhân</h5>
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="container">
+            <p class="text-center">Ảnh đại diện</p>
+            <img src="{{current_user.avatar}}" style="width: 200px;height: 200px;" class="rounded mx-auto d-block" alt="...">
+            <div class="input-group">
+                <label for="img-profile">Sửa ảnh đại diện: </label>
+                <input type="file" id="img-profile" name="img-profile" multiple>
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#update_profile">Lưu</button>
+        </div>
+    </form>
+    <form method="post" action="">
+
+        <div class="form-group">
+            <label for="username">Firstname</label>
+            <div class="input-group mb-3">
+
+                <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="firstname" required="true" value="{{current_user.username}}"disabled="true">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Sửa</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#update_profile">Lưu</button>
+        </div>
+    </form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded',(event)=>{
+        $('.btn.btn-outline-secondary').click((e)=>{
+            const inputP =e.target.parentNode.parentNode
+            $(inputP).children('input').attr({'disabled':false})
+
+        })
+
+    })
+</script>
+{% endblock %}

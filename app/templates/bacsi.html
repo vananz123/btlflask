@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Thông tin bác sĩ</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Tên</th>
+          <th scope="col">số điện thoại</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%if bacsi %}
+        {% for item in bacsi%}
+        <tr>
+          <td>{{item.ten}}</td>
+          <td>{{item.phone}}</td>
+        </tr>
+        {% endfor%}
+      {% else %}
+        <tr>
+          <td>Không tìm thấy bệnh nhân nào</td>
+        </tr>
+      {%endif%}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

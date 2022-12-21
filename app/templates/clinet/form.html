@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<h2>Thông tin đã đăng ký</h2>
+<form>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="name">Họ và tên</label>
+       <input type="text" class="form-control" id="name" required="true" name="name" value="{{bn.ten}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="sdt">Số điện thoại</label>
+      <input type="text" class="form-control" id="sdt" name="phone" required="true" value="{{bn.phone}}" >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address">Địa chỉ</label>
+    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required="true" value="{{bn.diaChi}}">
+  </div>
+  <div class="form-group">
+      <label for="ngaysinh">Ngày sinh</label>
+      <input type="date" class="form-control" id="ngaysinh" required="true" name="namesinh" value="{{bn.namSinh}}">
+    </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="gt">Giới tính</label>
+      <select id="gt" class="form-control" name="gt">
+        <option value="0" selected>Nam</option>
+        <option value="1">Nữ</option>
+      </select>
+    </div>
+  </div>
+
+</form>
+<form method="post" action="/dangkykham/form">
+    <input type="text" name="bn_id" value="{{bn.id}}">
+    <div class="form-group">
+      <label for="lichkham">Chọn lịch khám</label>
+      <input type="date" class="form-control" id="lichkham" required="true" name="lichkham">
+    </div>
+  <button type="submit"  class="btn btn-primary">Đặt lịch</button>
+</form>
+
+{% endblock %}

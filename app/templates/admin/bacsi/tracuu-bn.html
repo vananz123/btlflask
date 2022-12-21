@@ -1,0 +1,44 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<form method="post" action="/api/tracuu">
+  <div class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="thongtin" class="sr-only">Tìm kiếm</label>
+      <input type="text" class="form-control" id="thongtin" placeholder="tên, số điện thoại">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" id="btn">Tìm</button>
+  </div>
+</form>
+<div class="container">
+    <h1 class="mt-4">Thông tin bệnh nhân</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tên</th>
+          <th scope="col">số điện thoại</th>
+          <th scope="col">năm sinh</th>
+          <th scope="col">địa chỉ</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%if benhnhan %}
+        {% for item in benhnhan%}
+        <tr>
+          <th scope="row"></th>
+          <td>{{item.ten}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.namSinh}}</td>
+          <td>{{item.diaChi}}</td>
+        </tr>
+        {% endfor%}
+      {% else %}
+        <tr>
+          <td>Không tìm thấy bệnh nhân nào</td>
+        </tr>
+      {%endif%}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
